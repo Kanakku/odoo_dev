@@ -1,4 +1,5 @@
 from odoo import models, fields, api
+from odoo.exceptions import ValidationError
 
 class open_academy(models.Model):
     _name = 'open_academy.session'
@@ -42,3 +43,9 @@ class open_academy(models.Model):
                     'message': "Incremente el numero de asientos o reduzca los asistentes",
                 },
             }
+    
+    # Un instructor no puede estar a cargo de una seccion y ser un aistente en la misma
+    @api.constrains('instructor_id', 'attendee_ids')
+    def _check_instructor_attendees(self):
+        if self.instructor_id and self.instructor_id in self.attendee_ids:
+            raise ValidationError("Un instructor de seccion no puede ser asistente")
