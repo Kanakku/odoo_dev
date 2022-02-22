@@ -56,8 +56,6 @@
 
         <menuitem id="menu_course" parent="menu_open_academy" name="Courses" sequence="10"
             action="action_list_course"/>
-        <menuitem id="menu_session" parent="menu_open_academy" name="Sessions" sequence="10"
-            action="action_list_session"/>
 
     </data>
 </odoo>

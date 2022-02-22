@@ -1,0 +1,30 @@
+<odoo>
+    <data>
+    
+    <!-- open_academy_partner form view -->
+    <record id="model_name_view_form" model="ir.ui.view">
+        <field name="name">open_academy_partner.view.form</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="instructor"/>
+                        <field name="session_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_list_partner">
+        <field name="name">Partners</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+    </record> 
+
+    <menuitem id="menu_partner" parent="menu_open_academy" name="Partners" sequence="10"
+            action="action_list_partner"/>  
+    
+    </data>
+</odoo>
